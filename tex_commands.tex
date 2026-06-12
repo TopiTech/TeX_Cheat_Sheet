@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec,xeCJK,setspace,geometry,amsmath,amssymb,graphicx, Listings,color,hyperref,caption}
+\setmainfont{Times New Roman}\setCJKmainfont{IPAexMincho}\setstretch{1.2}\geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
+\title{LaTeX コマンド・構文リファレンス}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\section{文書構造}
+\begin{tabular}{ll}
+\verb|\documentclass[]{article}| & ドキュメント種類 \\
+\verb|\begin{document}...\end{document}| & ドキュメント本体 \\
+\verb|\maketitle| & タイトル表示 \\
+\verb|\tableofcontents| & 目次 \\
+\verb|\clearpage| & ページ切り \\
+\verb|\section{章題}| & 第1節 \\
+\verb|\subsection{節題}| & 第2節 \\
+\verb|\paragraph{小題} & 小見出し \\
+\end{tabular}
+
+\section{数式}
+\begin{tabular}{ll}
+\verb|$...$| & インライン数式 \\
+\verb|\[...\]| & 表示数式 \\
+\verb|\begin{equation}...\end{equation}| & 番号付き数式 \\
+\verb|\begin{align}...\end{align}| & 数式配列 \\
+\verb|\begin{alignat}{n}...\end{alignat}| & 数式配置 \\
+\verb|\begin{cases}...\end{cases}| & 連立方程式 \\
+\verb|\frac{a}{b}| & 分数 \\
+\verb|x^{a}| & 上付き \\
+\verb|x_{a}| & 下付き \\
+\verb|\sqrt[n]{x}| & n乗根 \\
+\verb|\int_a^b| & 積分 \\
+\verb|\sum_{i=1}^n| & シグマ \\
+\verb|\lim_{x\to0}| & 限り \\
+\verb|\begin{smallmatrix}...\end{smallmatrix}| & 行列（小） \\
+\verb|\begin{pmatrix}...\end{pmatrix}| & 行列（括弧あり） \\
+\verb|\begin{bmatrix}...\end{bmatrix}| & 行列（角括弧） \\
+\verb|\boldsymbol{x}| & ベクトル \\
+\verb|\label{eq:name}| & 数式ラベル \\
+\verb|\eqref{eq:name}| & 数式参照 \\
+\end{tabular}
+
+\section{図表}
+\begin{tabular}{ll}
+\verb|\begin{figure}[H]\includegraphics{file}\caption{...}\end{figure}| & 図 \\
+\verb|\begin{figure}[htbp]\includegraphics[width=0.8\textwidth]{file}\end{figure}| & 配置指定 \\
+\verb|\includegraphics[scale=0.5]{file}| & 拡大縮小 \\
+\verb|\begin{table}[H]\begin{tabular}{|c|c|}\hline\end{tabular}\end{table}| & 表 \\
+\verb|\begin{subfigure}{0.45\linewidth}\includegraphics{...}\caption{...}\end{subfigure}| & 子図 \\
+\verb|\hline| & 水平線 \\
+\verb|\multicolumn{2}{|c|}{...}| & セル結合 \\
+\verb|\begin{itemize}\item ...\end{itemize}| & 箇条書き \\
+\verb|\begin{enumerate}\item ...\end{enumerate}| & 番号付きリスト \\
+\verb|\begin{description}\item[...] ...\end{description}| & 説明リスト \\
+\end{tabular}
+
+\section{コードリスト}
+\begin{tabular}{ll}
+\verb|\begin{lstlisting}[language=MATLAB]\end{lstlisting}| & ソースコード \\
+\verb|\lstset{...}| & listings設定 \\
+\verb|\renewcommand{\lstlistingname}{表}| & キャプション変更 \\
+\verb|\captionsetup[lstlisting]{labelformat=empty}| & ラベル非表示 \\
+\verb|\begin{verbatim}...\end{verbatim}| & そのまま表示 \\
+\verb|\verb|code| & インラインコード \\
+\end{tabular}
+
+\section{フォント・書式}
+\begin{tabular}{ll}
+\verb|\textbf{bold}| & 太字 \\
+\verb|\textit{italic}| & イタリック \\
+\verb|\verb|code| & コード \\
+\verb|\emph{emphasis}| & 強調 \\
+\verb|\begin{shaded}...\end{shaded}| & 影付きボックス \\
+\verb|\fbox{\parbox{width}{...}}| & boxed領域 \\
+\verb|\parbox[t]{width}{text}| & 並列配置 \\
+\verb|\vspace{10pt}| & 垂直スペース \\
+\verb|\hspace{10pt}| & 水平スペース \\
+\verb|\newline| & 改行 \\
+\verb|\pagebreak| & 改ページ \\
+\end{tabular}
+
+\section{リンク・参照}
+\begin{tabular}{ll}
+\verb|\label{sec:name}| & 節ラベル \\
+\verb|\ref{sec:name}| & 節参照 \\
+\verb|\pageref{sec:name}| & ページ参照 \\
+\verb|\hyperlink{label}{text}| & 内部リンク \\
+\verb|\href{url}{text}| & URLリンク \\
+\verb|\eqref{eq:name}| & 数式参照 \\
+\verb|\cref{eq:name}| & キャプション参照（cleveref） \\
+\verb|\cref{fig,tab,label}| & 複数参照（cleveref） \\
+\end{tabular}
+
+\section{色・その他}
+\begin{tabular}{ll}
+\verb|\textcolor{red}{text}| & 文字色 \\
+\verb|\colorbox{yellow}{text}| & 背景色 \\
+\verb|\fcolorbox{red}{yellow}{text}| & 枠線・背景 \\
+\verb|\today| & 日付 \\
+\verb|\ldots| & 三点リーダー \\
+\verb|\ldots| & 三点リーダー \\
+\verb|\yline{value}{style}{color}| & 水平線（gnuplot風） \\
+\end{tabular}
+
+\end{document}
